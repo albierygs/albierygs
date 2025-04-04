@@ -12,7 +12,7 @@
 <br>
 
 
-<div align=center>
+<div align="center">
   <a href="https://github.com/anuraghazra/github-readme-stats">
   <img height=200 align="center" src="https://github-readme-stats.vercel.app/api?username=albierygs&theme=dark&show_icons=true" />
 </a>
@@ -23,6 +23,10 @@
 
 <br>
 
-<p align=center><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=albierygs&theme=dark" alt="albierygs" /></p>
+<p align="center"><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=albierygs&theme=dark" alt="albierygs" /></p>
+
+<p align="center">
+  <img src="https://github.com/albierygs/albierygs/blob/output/github-snake-dark.svg" alt="snake gif">
+</p>
 
 <p align="center"> <img src="https://komarev.com/ghpvc/?username=albierygs&label=Profile%20views&color=0e75b6&style=flat" alt="albierygs" /> </p>
