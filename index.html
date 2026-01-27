@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portifólio pessoal</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Quicksand:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Audiowide&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Quicksand:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/style.css" />
+    <script>
+      (function () {
+        var stored = localStorage.getItem("tema");
+        var tema;
+        if (stored === "claro" || stored === "escuro") {
+          tema = stored;
+        } else {
+          var prefereClaro = window.matchMedia(
+            "(prefers-color-scheme: light)",
+          ).matches;
+          tema = prefereClaro ? "claro" : "escuro";
+        }
+        document.documentElement.dataset.tema = tema;
+      })();
+    </script>
+  </head>
+  <body>
+    <header id="header-container">
+      <!-- Links de contato -->
+      <button id="btn-contato-mobile" onclick="abrirModalContato()">
+        Entrar em contato <i class="fa-regular fa-comments"></i>
+      </button>
+
+      <aside id="links-contato">
+        <a
+          href="/assets/curriculo.pdf"
+          target="_blank"
+          id="icone-curriculo"
+          class="com-tooltip tooltip-abaixo"
+          data-tooltip="Baixar currículo"
+        >
+          <p>Resume</p>
+          <i class="fa-regular fa-file fa-lg"></i>
+        </a>
+
+        <a
+          href="https://lattes.cnpq.br/6445950290215404"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="icone-contato com-tooltip tooltip-abaixo"
+          id="icone-lattes"
+          data-tooltip="Currículo Lattes"
+        >
+          <p>Lattes</p>
+        </a>
+
+        <a
+          href="https://github.com/albierygs"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="icone-contato com-tooltip tooltip-abaixo"
+          data-tooltip="GitHub"
+        >
+          <i class="fa-brands fa-github fa-lg"></i>
+        </a>
+
+        <a
+          href="mailto:albierygoncalves2@gmail.com"
+          class="icone-contato com-tooltip tooltip-abaixo"
+          data-tooltip="Enviar e-mail"
+        >
+          <i class="fa-solid fa-envelope fa-lg"></i>
+        </a>
+
+        <a
+          href="https://www.linkedin.com/in/albiery-goncalves/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="icone-contato com-tooltip tooltip-abaixo"
+          data-tooltip="LinkedIn"
+        >
+          <i class="fa-brands fa-square-linkedin fa-lg"></i>
+        </a>
+
+        <a
+          href="https://orcid.org/0009-0005-6193-7109"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="icone-contato com-tooltip tooltip-abaixo"
+          data-tooltip="ORCID"
+        >
+          <i class="fa-brands fa-orcid fa-lg"></i>
+        </a>
+      </aside>
+
+      <div>
+        <button
+          id="tema"
+          class="com-tooltip tooltip-abaixo"
+          data-tooltip="Alternar tema"
+          onclick="trocarTema()"
+          aria-label="Alternar tema claro/escuro"
+        >
+          <i id="tema-icone" class="fa-solid fa-moon"></i>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section id="apresentacao-container">
+        <div id="conteudo-principal">
+          <div id="informacoes-esquerda">
+            <h1 id="nome-apresentacao">Albiery Gonçalves</h1>
+            <h2>Desenvolvedor Full Stack</h2>
+            <p>
+              Caiu aqui de paraquedas? Sou Albiery, desenvolvedor Full Stack,
+              graduando em Engenharia de Software, com forte foco em back-end.
+              Crio aplicações web eficientes e bem estruturadas, sempre em busca
+              de evolução técnica constante. Vamos construir algo incrível
+              juntos?
+              <a
+                href="javascript:void(0)"
+                onclick="abrirModalContato()"
+                class="link-sketch"
+              >
+                Entre em contato!
+              </a>
+            </p>
+          </div>
+
+          <div id="foto-perfil-container">
+            <img
+              src="/assets/images/perfil.jpg"
+              alt="Imagem de perfil de Albiery Gonçalves"
+              id="foto-perfil"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section id="github-stats-container" class="seção-extra">
+        <h2 class="titulo-secao">GitHub Stats</h2>
+        <div id="github-stats" class="github-stats-grid">
+          <div class="stat-card">
+            <span id="stat-commits" class="stat-valor">--</span>
+            <span class="stat-label">Commits (últimos 12 meses)</span>
+          </div>
+          <div class="stat-card">
+            <span id="stat-repos" class="stat-valor">--</span>
+            <span class="stat-label">Repositórios públicos</span>
+          </div>
+          <div class="stat-card" id="ultimo-projeto-card">
+            <a
+              id="ultimo-projeto-link"
+              href="#"
+              target="_blank"
+              class="ultimo-projeto-link"
+            >
+              <span id="ultimo-projeto-nome" class="stat-valor">--</span>
+              <span class="stat-label">Último projeto</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills-container" class="seção-extra">
+        <h2 class="titulo-secao">Skills</h2>
+        <div class="skills-slider-wrapper">
+          <div class="skills-slider" id="skills-slider">
+            <!-- Items serão duplicados via JavaScript -->
+          </div>
+        </div>
+      </section>
+
+      <section id="projetos-container" class="seção-extra">
+        <h2 class="titulo-secao">Projetos</h2>
+
+        <div id="projetos-grid"></div>
+
+        <div id="projetos-controles">
+          <button
+            id="btn-ver-mais"
+            class="btn-controle"
+            onclick="gerenciarProjetos('mais')"
+          >
+            Ver mais <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <button
+            id="btn-ver-menos"
+            class="btn-controle hidden"
+            onclick="gerenciarProjetos('menos')"
+          >
+            Ver menos <i class="fa-solid fa-chevron-up"></i>
+          </button>
+        </div>
+      </section>
+
+      <div id="drawer-overlay" onclick="fecharDrawer()"></div>
+
+      <div id="projeto-drawer">
+        <button id="fechar-drawer" onclick="fecharDrawer()">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="drawer-content">
+          <div class="drawer-visual">
+            <div class="drawer-img-container">
+              <img id="drawer-img" src="" alt="Capa do projeto" />
+            </div>
+            <div class="drawer-links">
+              <a
+                id="drawer-link-github"
+                href="#"
+                target="_blank"
+                class="btn-drawer"
+              >
+                <i class="fa-brands fa-github"></i> Repositório
+              </a>
+              <a
+                id="drawer-link-deploy"
+                href="#"
+                target="_blank"
+                class="btn-drawer"
+              >
+                <i class="fa-solid fa-globe"></i> Ver Projeto
+              </a>
+            </div>
+          </div>
+
+          <div class="drawer-info">
+            <div class="json-window">
+              <div class="json-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+                <span class="filename">project_info.json</span>
+              </div>
+              <pre><code id="drawer-json-content"></code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <dialog id="modal-contato">
+        <div class="modal-header">
+          <h3>Contatos</h3>
+          <button class="btn-fechar-modal" onclick="fecharModalContato()">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <div class="modal-content">
+          <a href="/assets/curriculo.pdf" target="_blank" class="modal-link">
+            <i class="fa-regular fa-file"></i> Baixar Currículo
+          </a>
+          <a
+            href="https://lattes.cnpq.br/6445950290215404"
+            target="_blank"
+            class="modal-link"
+          >
+            <i class="fa-solid fa-graduation-cap"></i> Currículo Lattes
+          </a>
+          <a
+            href="https://github.com/albierygs"
+            target="_blank"
+            class="modal-link"
+          >
+            <i class="fa-brands fa-github"></i> GitHub
+          </a>
+          <a href="mailto:albierygoncalves2@gmail.com" class="modal-link">
+            <i class="fa-solid fa-envelope"></i> Enviar E-mail
+          </a>
+          <a
+            href="https://www.linkedin.com/in/albiery-goncalves/"
+            target="_blank"
+            class="modal-link"
+          >
+            <i class="fa-brands fa-linkedin"></i> LinkedIn
+          </a>
+          <a
+            href="https://orcid.org/0009-0005-6193-7109"
+            target="_blank"
+            class="modal-link"
+          >
+            <i class="fa-brands fa-orcid"></i> ORCID
+          </a>
+        </div>
+      </dialog>
+    </main>
+
+    <footer>
+      <p id="footer-copyright">
+        © Albiery Gonçalves |
+        <a
+          href="https://github.com/albierygs/albierygs"
+          target="_blank"
+          rel="noopener noreferrer"
+          id="link-github"
+        >
+          Código fonte no GitHub
+        </a>
+      </p>
+    </footer>
+    <script src="index.js"></script>
+  </body>
+</html>
