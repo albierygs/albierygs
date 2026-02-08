@@ -74,7 +74,11 @@
   <body>
     <header id="header-container">
       <!-- Links de contato -->
-      <button id="btn-contato-mobile" onclick="abrirModalContato()">
+      <button
+        id="btn-contato-mobile"
+        onclick="abrirModalContato()"
+        data-lang="btn-contact-mobile"
+      >
         Entrar em contato <i class="fa-regular fa-comments"></i>
       </button>
 
@@ -85,8 +89,9 @@
           id="icone-curriculo"
           class="com-tooltip tooltip-abaixo"
           data-tooltip="Baixar currículo"
+          data-lang="nav-resume-tooltip"
         >
-          <p>Resume</p>
+          <p data-lang="nav-resume">Currículo</p>
           <i class="fa-regular fa-file fa-lg"></i>
         </a>
 
@@ -97,6 +102,7 @@
           class="icone-contato com-tooltip tooltip-abaixo"
           id="icone-lattes"
           data-tooltip="Currículo Lattes"
+          data-lang="nav-lattes-tooltip"
         >
           <p>Lattes</p>
         </a>
@@ -115,6 +121,7 @@
           href="mailto:albierygoncalves2@gmail.com"
           class="icone-contato com-tooltip tooltip-abaixo"
           data-tooltip="Enviar e-mail"
+          data-lang="nav-email-tooltip"
         >
           <i class="fa-solid fa-envelope fa-lg"></i>
         </a>
@@ -140,13 +147,24 @@
         </a>
       </aside>
 
-      <div>
+      <div id="controles-header">
+        <button
+          id="btn-idioma"
+          class="com-tooltip tooltip-abaixo"
+          data-tooltip="Alternar idioma"
+          onclick="toggleLanguage()"
+          data-lang="lang-tooltip"
+        >
+          <span id="idioma-texto">BR</span>
+        </button>
+
         <button
           id="tema"
           class="com-tooltip tooltip-abaixo"
           data-tooltip="Alternar tema"
           onclick="trocarTema()"
           aria-label="Alternar tema claro/escuro"
+          data-lang="theme-tooltip"
         >
           <i id="tema-icone" class="fa-solid fa-moon"></i>
         </button>
@@ -158,8 +176,8 @@
         <div id="conteudo-principal">
           <div id="informacoes-esquerda">
             <h1 id="nome-apresentacao">Albiery Gonçalves</h1>
-            <h2>Desenvolvedor Full Stack</h2>
-            <p>
+            <h2 data-lang="hero-role">Desenvolvedor Full Stack</h2>
+            <p id="hero-desc" data-lang="hero-desc">
               Caiu aqui de paraquedas? Sou Albiery, desenvolvedor Full Stack,
               graduando em Engenharia de Software, com forte foco em back-end.
               Crio aplicações web eficientes e bem estruturadas, sempre em busca
@@ -169,6 +187,7 @@
                 href="javascript:void(0)"
                 onclick="abrirModalContato()"
                 class="link-sketch"
+                data-lang="hero-desc-link"
               >
                 Entre em contato!
               </a>
@@ -186,15 +205,21 @@
       </section>
 
       <section id="github-stats-container" class="seção-extra">
-        <h2 class="titulo-secao">GitHub Stats</h2>
+        <h2 class="titulo-secao" data-lang="section-github">
+          Estatísticas do GitHub
+        </h2>
         <div id="github-stats" class="github-stats-grid">
           <div class="stat-card">
             <span id="stat-commits" class="stat-valor">--</span>
-            <span class="stat-label">Commits (últimos 12 meses)</span>
+            <span class="stat-label" data-lang="stat-commits">
+              Commits (últimos 12 meses)
+            </span>
           </div>
           <div class="stat-card">
             <span id="stat-repos" class="stat-valor">--</span>
-            <span class="stat-label">Repositórios públicos</span>
+            <span class="stat-label" data-lang="stat-repos"
+              >Repositórios públicos</span
+            >
           </div>
           <div class="stat-card" id="ultimo-projeto-card">
             <a
@@ -204,14 +229,16 @@
               class="ultimo-projeto-link"
             >
               <span id="ultimo-projeto-nome" class="stat-valor">--</span>
-              <span class="stat-label">Último projeto</span>
+              <span class="stat-label" data-lang="stat-last-project"
+                >Último projeto</span
+              >
             </a>
           </div>
         </div>
       </section>
 
       <section id="skills-container" class="seção-extra">
-        <h2 class="titulo-secao">Skills</h2>
+        <h2 class="titulo-secao" data-lang="section-skills">Skills</h2>
         <div class="skills-slider-wrapper">
           <div class="skills-slider" id="skills-slider">
             <!-- Items serão duplicados via JavaScript -->
@@ -220,7 +247,7 @@
       </section>
 
       <section id="projetos-container" class="seção-extra">
-        <h2 class="titulo-secao">Projetos</h2>
+        <h2 class="titulo-secao" data-lang="section-projects">Projetos</h2>
 
         <div id="projetos-grid"></div>
 
@@ -229,6 +256,7 @@
             id="btn-ver-mais"
             class="btn-controle"
             onclick="gerenciarProjetos('mais')"
+            data-lang="btn-see-more"
           >
             Ver mais <i class="fa-solid fa-chevron-down"></i>
           </button>
@@ -236,6 +264,7 @@
             id="btn-ver-menos"
             class="btn-controle hidden"
             onclick="gerenciarProjetos('menos')"
+            data-lang="btn-see-less"
           >
             Ver menos <i class="fa-solid fa-chevron-up"></i>
           </button>
@@ -260,16 +289,18 @@
                 href="#"
                 target="_blank"
                 class="btn-drawer"
+                data-lang="btn-github-repo"
               >
-                <i class="fa-brands fa-github"></i> Repositório
+                Repositório <i class="fa-brands fa-github"></i>
               </a>
               <a
                 id="drawer-link-deploy"
                 href="#"
                 target="_blank"
                 class="btn-drawer"
+                data-lang="btn-see-project"
               >
-                <i class="fa-solid fa-globe"></i> Ver Projeto
+                Ver Projeto <i class="fa-solid fa-globe"></i>
               </a>
             </div>
           </div>
@@ -280,7 +311,9 @@
                 <span class="dot red"></span>
                 <span class="dot yellow"></span>
                 <span class="dot green"></span>
-                <span class="filename">project_info.json</span>
+                <span class="filename" data-lang="project-info-json"
+                  >project_info.json</span
+                >
               </div>
               <pre><code id="drawer-json-content"></code></pre>
             </div>
@@ -290,7 +323,7 @@
 
       <dialog id="modal-contato">
         <div class="modal-header">
-          <h3>Contatos</h3>
+          <h3 data-lang="contacts-modal-title">Contatos</h3>
           <button class="btn-fechar-modal" onclick="fecharModalContato()">
             <i class="fa-solid fa-xmark"></i>
           </button>
@@ -298,14 +331,16 @@
 
         <div class="modal-content">
           <a href="./assets/curriculo.pdf" target="_blank" class="modal-link">
-            <i class="fa-regular fa-file"></i> Baixar Currículo
+            <i class="fa-regular fa-file"></i>
+            <span data-lang="resume-modal">Baixar Currículo</span>
           </a>
           <a
             href="https://lattes.cnpq.br/6445950290215404"
             target="_blank"
             class="modal-link"
           >
-            <i class="fa-solid fa-graduation-cap"></i> Currículo Lattes
+            <i class="fa-solid fa-graduation-cap"></i>
+            <span data-lang="lattes-modal">Currículo Lattes</span>
           </a>
           <a
             href="https://github.com/albierygs"
@@ -315,7 +350,8 @@
             <i class="fa-brands fa-github"></i> GitHub
           </a>
           <a href="mailto:albierygoncalves2@gmail.com" class="modal-link">
-            <i class="fa-solid fa-envelope"></i> Enviar E-mail
+            <i class="fa-solid fa-envelope"></i>
+            <span data-lang="email-modal">Enviar E-mail</span>
           </a>
           <a
             href="https://www.linkedin.com/in/albiery-goncalves/"
@@ -343,6 +379,7 @@
           target="_blank"
           rel="noopener noreferrer"
           id="link-github"
+          data-lang="footer-text"
         >
           Código fonte no GitHub
         </a>

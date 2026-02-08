@@ -1019,3 +1019,32 @@ pre {
     height: 90vh;
   }
 }
+
+/* Container para alinhar os botões de tema e idioma */
+#controles-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Estilo do botão de idioma */
+#btn-idioma {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px; /* Um pouco menor que o ícone */
+  height: 50px;
+  background-color: transparent;
+  border: none;
+  color: var(--cor-texto);
+  font-family: "JetBrains Mono", monospace;
+  font-weight: bold;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#btn-idioma:hover {
+  background-color: var(--cor-primaria-suave);
+  color: var(--cor-texto);
+}
