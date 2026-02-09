@@ -108,6 +108,7 @@ function applyLanguage(lang) {
 
     if (text) {
       if (key.includes("-tooltip")) {
+        console.log(key, text);
         element.setAttribute("data-tooltip", text);
       } else if (element.children.length === 0) {
         element.textContent = text;
@@ -626,9 +627,10 @@ function renderizarProjetos() {
         ? `<a href="${projeto[currentLang].link_github || projeto[currentLang].github_link}" target="_blank" class="card-link-icon com-tooltip" data-tooltip="GitHub"><i class="fa-brands fa-github"></i></a>`
         : "";
 
+    const deployTooltip = translations[currentLang]["btn-see-project-tooltip"];
     const deployIcon =
       projeto[currentLang].link_deploy || projeto[currentLang].deploy_link
-        ? `<a href="${projeto[currentLang].link_deploy || projeto[currentLang].deploy_link}" target="_blank" class="card-link-icon com-tooltip" data-tooltip="Ver Projeto" data-lang="btn-see-project-tooltip"><i class="fa-solid fa-globe"></i></a>`
+        ? `<a href="${projeto[currentLang].link_deploy || projeto[currentLang].deploy_link}" target="_blank" class="card-link-icon com-tooltip" data-tooltip="${deployTooltip}"><i class="fa-solid fa-globe"></i></a>`
         : "";
 
     // HTML do Card
