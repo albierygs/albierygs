@@ -393,6 +393,45 @@ iniciarSkillsSlider();
 const projetos = [
   {
     pt: {
+      nome: "Encurtador de URL",
+      descricao:
+        "Aplicação web para encurtamento de URLs, permitindo aos usuários criar links curtos personalizados. O sistema inclui painel de estatísticas de acesso.",
+      stacks: [
+        "Typescript",
+        "Vite",
+        "PostgreSQL",
+        "ShadCN UI",
+        "Redis",
+        "Fastify",
+        "Drizzle ORM",
+      ],
+      caminho_capa: "./assets/images/encurtador-url-capa.png",
+      link_github: "https://github.com/albierygs/url-shortener",
+      link_deploy: "https://url-shortener-smoky-zeta.vercel.app/",
+      licenca: "MIT",
+    },
+    en: {
+      name: "URL Shortener",
+      description:
+        "Web application for URL shortening, allowing users to create custom short links. The system includes an access statistics dashboard.",
+      stacks: [
+        "Typescript",
+        "Vite",
+        "PostgreSQL",
+        "ShadCN UI",
+        "Redis",
+        "Fastify",
+        "Drizzle ORM",
+      ],
+      cover_path: "./assets/images/encurtador-url-capa.png",
+      github_link: "https://github.com/albierygs/url-shortener",
+      deploy_link: "https://url-shortener-smoky-zeta.vercel.app/",
+      license: "MIT",
+    },
+  },
+
+  {
+    pt: {
       nome: "Gerenciador de Despesas",
       descricao:
         "Aplicação desktop para gerenciamento de despesas pessoais e gestão de produtos para pequenas empresas. O sistema permite o cadastro de usuários e empresas, gerenciamento de despesas, visualização de gráficos estatísticos e geração de relatórios em PDF.",
